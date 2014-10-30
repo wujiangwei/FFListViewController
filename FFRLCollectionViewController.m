@@ -9,8 +9,6 @@
 #import "FFRLCollectionViewController.h"
 #import "FFLoadMoreFooterView.h"
 
-#import "UIView+Frame.h"
-
 @interface FFRLCollectionViewController()
 <CusRefreshControlDelegate>
 
@@ -31,7 +29,7 @@
     
     if (self.aRefreshControl == nil) {
         self.aRefreshControl = [[FFDynamicRefreshControl alloc] initWithFrame:CGRectZero];
-        self.aRefreshControl.width = self.collectView.width;
+        self.aRefreshControl.frame = CGRectMake(0, 0, self.collectView.frame.size.width, 0);
         self.aRefreshControl.delegate = self;
         [self.collectView addSubview:self.aRefreshControl];
     }
@@ -56,7 +54,7 @@
 
 - (void)setHasMore:(BOOL)hasMore {
     if (_hasMore != hasMore && hasMore) {
-        self.flowLayout.footerReferenceSize = CGSizeMake(self.view.width, 44);
+        self.flowLayout.footerReferenceSize = CGSizeMake(self.view.frame.size.width, 44);
     }else{
         self.flowLayout.footerReferenceSize = CGSizeMake(0, 0);
     }

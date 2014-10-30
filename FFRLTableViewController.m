@@ -8,7 +8,6 @@
 
 #import "FFRLTableViewController.h"
 #import "FFLoadMoreFooterView.h"
-#import "AppHelper.h"
 
 @interface FFRLTableViewController ()
 <
